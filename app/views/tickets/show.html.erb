@@ -1,0 +1,16 @@
+<h1>Odd Job Computing Ticket Tracker</h1>
+<h2>Show Existing Ticket</h2>
+
+<p><strong>Issue:&nbsp;</strong>
+  <%= @ticket.issue %>
+  <strong>Submitted:&nbsp;</strong><%= @ticket.submit_date %>
+</p>
+
+<p><strong>Submitted by:</strong>&nbsp;
+  <%= @ticket.client_email %>
+</p>
+
+<p><strong>Description</strong><br>
+  <%= @ticket.description %>
+</p>
+  
