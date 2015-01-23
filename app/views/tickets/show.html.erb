@@ -1,12 +1,14 @@
 <h1>Odd Job Computing Ticket Tracker</h1>
 <h2>Show Existing Ticket</h2>
 
-<p><strong>Issue:&nbsp;</strong>
-  <%= @ticket.issue %>
+<p>
+  <strong>Id:</strong><%= @ticket.id %>
   <strong>Submitted:&nbsp;</strong><%= @ticket.submit_date %>
 </p>
-
-<p><strong>Submitted by:</strong>&nbsp;
+<p>
+  <strong>Issue:&nbsp;</strong>
+  <%= @ticket.issue %>
+  <strong>Submitted by:</strong>&nbsp;
   <%= @ticket.client_email %>
 </p>
 
@@ -14,3 +16,4 @@
   <%= @ticket.description %>
 </p>
   
+<p><%= link_to 'New Ticket', new_ticket_path %> <%= link_to 'Ticket List', tickets_path %></p>

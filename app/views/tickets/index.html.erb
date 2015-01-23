@@ -14,13 +14,18 @@
   <% @tickets.each do |ticket| %>
   <tr>
     <td><%= ticket.id %></td>
-      <td><%= ticket.submit_date %></td>
-      <td><a href="<%= ticket.id %>"><%= ticket.issue %></a></td>
-      <td><%= ticket.client_email %></td>
-      <td><%= ticket.description %></td>
-    </tr>
+    <td><%= ticket.submit_date %></td>
+    <td><%= link_to ticket.issue, ticket_path(ticket) %></td>
+    <td><%= ticket.client_email %></td>
+    <td><%= ticket.description %></td>
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Delete', ticket_path(ticket),method: :delete,
+	    data: { confirm: "Are you sure?" } %></td>
+  </tr>
   <% end %>
 </table>
 <% else %>
 <p><strong>No issues found</strong></p>
 <% end %>
+
+<p><%= link_to 'New Ticket', new_ticket_path %></p>
