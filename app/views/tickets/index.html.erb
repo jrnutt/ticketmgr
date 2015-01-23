@@ -1,0 +1,26 @@
+<h1>Odd Job Computing Ticket Tracker</h1>
+<h2>List Tickets</h2>
+
+<% if not (@tickets.nil?) %>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Date</th>
+    <th>Issue</th>
+    <th>By</th>
+    <th>Description</th>
+  </tr>
+
+  <% @tickets.each do |ticket| %>
+  <tr>
+    <td><%= ticket.id %></td>
+      <td><%= ticket.submit_date %></td>
+      <td><a href="<%= ticket.id %>"><%= ticket.issue %></a></td>
+      <td><%= ticket.client_email %></td>
+      <td><%= ticket.description %></td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+<p><strong>No issues found</strong></p>
+<% end %>
