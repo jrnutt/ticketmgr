@@ -12,8 +12,13 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def edit
+    @ticket = Ticket.find(params[:id])
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
+    
     if @ticket.save
       redirect_to @ticket
     else
@@ -23,8 +28,8 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-
-    if @ticket.update
+    
+    if @ticket.update(ticket_params)
       redirect_to @ticket
     else
       render 'edit'
